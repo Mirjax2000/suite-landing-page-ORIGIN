@@ -51,7 +51,6 @@
 @mixin container($width: 90rem) {
     max-width: $width;
     margin-inline: auto;
-    padding: 0 0rem;
 }
 
 @mixin radialGradient($background: $backroundGradient) {
@@ -99,7 +98,7 @@
 
 // --- placeholders ---
 %heading-XL {
-    @extend %weight-700;
+    @extend %weight-400;
     @extend %clr13;
     font-size: var(--heading-XL-fs);
     line-height: em(78, 72);
@@ -170,9 +169,15 @@
 
 %bttnSecondary {
     @extend %weight-700;
+    @extend %clr13;
     font-size: var(--bttb-fs);
     line-height: em(32, 16);
     letter-spacing: -0.01rem;
+    display: inline-block;
+    border: 1px solid $clr13;
+    background-color: $clr12;
+    border-radius: .375rem;
+    padding: .75rem 1.4375rem;
 }
 
 %autoMargin {

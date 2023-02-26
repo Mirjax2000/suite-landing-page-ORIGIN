@@ -30,10 +30,67 @@ html {
 
 body {
     font-family: Epilogue, sans-serif;
+    background-color: $clr12;
 }
 
-h2 {
-    @extend %bttnPrimary;
+.container {
+    outline: 1px solid green;
+    @include container(90rem);
+    padding: 3.125rem 10.375rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    outline: 1px solid red;
+
+    img {
+        width: 81px;
+        height: 32px;
+        align-self: center
+    }
+
+    .secondary {
+        @extend %bttnSecondary;
+        transition: background-color ease-in-out .2s;
+
+        &:hover {
+            background-color: $clr13;
+            color: $clr12 ;
+        }
+    }
+}
+
+.hero {
+    &--heading {
+        @extend %heading-XL;
+        outline: 1px solid black;
+
+        strong {
+            @extend %weight-700;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    padding-block: 14.5rem;
+    background-color: $clr11 ;
+
 }
 
 //  @media only screen and (max-width: 500px) {}
