@@ -68,11 +68,32 @@ header {
     margin-top: 11.75rem;
     position: relative;
     isolation: isolate;
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+        outline: 1px solid red;
+    }
 
     &--heading {
         @extend %heading-XL;
         max-width: 41rem;
         letter-spacing: -1px;
+        position: relative;
+        isolation: isolate;
+
+        &::after {
+            position: absolute;
+            content: '';
+            width: 17.9375rem;
+            height: 2.25rem;
+            background-image: url(./../img/pattern-curved-line-1.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: -50px;
+            right: 80px;
+        }
 
         strong {
             @extend %weight-700;
@@ -106,8 +127,28 @@ header {
         z-index: -1;
     }
 
+    .right--list {
+        padding: 0 1rem;
+        outline: 1px solid red;
+
+        &--items {
+
+            margin-bottom: 60px;
+
+            h2 {
+                @extend %social;
+            }
+
+            h3 {
+                @extend %heading-S;
+            }
+        }
+    }
+
 
 }
+
+
 
 
 
@@ -161,6 +202,11 @@ footer {
         &--heading {
             max-width: 32rem;
             letter-spacing: -.777778px;
+
+            &::after {
+                width: 14.4375rem;
+                height: 1.8125rem;
+            }
         }
 
         &--picture {
@@ -171,7 +217,7 @@ footer {
     }
 }
 
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 710px) {
     :root {
         --heading-XL-fs:#{$heading-XL-Min};
         --heading-L-fs:#{$heading-L-Min};
@@ -185,24 +231,43 @@ footer {
     }
 
     .container {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 5rem;
     }
 
     .hero {
         margin-top: 5.625rem;
 
         &--heading {
-            max-width: 100%;
+            max-width: 80%;
             letter-spacing: -0.0331rem;
+
+            &::after {
+                top: -2rem;
+                right: 10%;
+                width: 9.4375rem;
+                height: 1.1875rem;
+            }
         }
 
         &--picture {
-            background-image: url(./../img/image-hero-landscape.png);
-            width: 21.4375rem;
-            height: 15rem;
-            top: 390px;
-            right: 50%;
-            transform: translateX(10.5rem);
+            background-image: none;
+
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero {
+        &--heading {
+            max-width: 100%;
+        }
+
+        &--content {
+            max-width: 100%;
         }
     }
 }
