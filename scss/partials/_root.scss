@@ -1,8 +1,13 @@
 @use 'var' as *;
 
 :root {
-    --h1-fs:#{$h1Max};
-    --par-fs:#{$parMax};
-    --btn-fs:#{$btnMax};
-    --num-fs:#{$numMax};
+    --heading-XL-fs:#{$heading-XL-Max};
+    --heading-L-fs:#{$heading-L-Max};
+    --heading-M-fs:#{$heading-M-Max};
+    --heading-S-fs:#{$heading-S-Max};
+    --social-fs:#{$social-Max};
+    --quote-fs:#{$quote-Max};
+    --body-fs:#{$body-Max};
+    --footer-fs:#{$footer-Max};
+    --bttn-fs:#{$bttn-Max};
 }

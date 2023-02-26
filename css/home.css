@@ -1,8 +1,13 @@
 :root {
-  --h1-fs:1.75rem;
-  --par-fs:0.9375rem;
-  --btn-fs:0.9375rem;
-  --num-fs:1rem;
+  --heading-XL-fs:4.5rem;
+  --heading-L-fs:3rem;
+  --heading-M-fs:1.125rem;
+  --heading-S-fs:1rem;
+  --social-fs:3rem;
+  --quote-fs:1.25rem;
+  --body-fs:1.125rem;
+  --footer-fs:0.9375rem;
+  --bttn-fs:1rem;
 }
 
 html {
@@ -245,10 +250,25 @@ img {
   height: auto;
 }
 
+h2 {
+  font-size: var(--heading-M-fs);
+  line-height: 2em;
+  letter-spacing: -0.0112rem;
+}
+
+h2 {
+  font-weight: 700;
+}
+
 @font-face {
   font-family: Epilogue;
-  src: url(./../fonts/Epiloque-VariableFont_wght.ttf);
-  src: url(./../fonts/Epiloque-VariableFont_wght.woff2);
+  src: url(./../fonts/Epilogue-VariableFont_wght.ttf);
+  src: url(./../fonts/Epilogue-VariableFont_wght.woff2);
+  font-style: normal;
+}
+@font-face {
+  font-family: HankenGrotesk;
+  src: url(./../fonts/HankenGrotesk-VariableFont_wght.ttf);
   font-style: normal;
 }
 /* border-box */
@@ -273,26 +293,6 @@ html ::selection {
 }
 
 body {
-  font-family: Epiloque, sans-serif;
-}
-
-h1 {
-  font-weight: 900;
-}
-
-h2 {
-  font-weight: 800;
-}
-
-h3 {
-  font-weight: 700;
-}
-
-h4 {
-  font-weight: 600;
-}
-
-p {
-  font-weight: 400;
+  font-family: Epilogue, sans-serif;
 }
 /*# sourceMappingURL=home.css.map */

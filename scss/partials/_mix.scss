@@ -98,6 +98,83 @@
 
 
 // --- placeholders ---
+%heading-XL {
+    @extend %weight-700;
+    @extend %clr13;
+    font-size: var(--heading-XL-fs);
+    line-height: em(78, 72);
+}
+
+%heading-L {
+    @extend %weight-700;
+    @extend %clr13;
+    font-size: var(--heading-L-fs);
+    line-height: em(56, 48);
+    letter-spacing: -0.0313rem;
+}
+
+%heading-M {
+    @extend %weight-700;
+    @extend %clr13;
+    font-size: var(--heading-M-fs);
+    line-height: em(32, 18);
+    letter-spacing: -0.0112rem;
+}
+
+%heading-S {
+    @extend %weight-400;
+    @extend %clr14;
+    font-size: var(--heading-S-fs);
+    line-height: em(26, 16);
+    letter-spacing: .1563rem;
+    text-transform: uppercase;
+}
+
+%quote {
+    @extend %weight-400;
+    @extend %clr14;
+    font-size: var(--quote-fs);
+    line-height: em(35, 20);
+    letter-spacing: .0069rem;
+}
+
+%body {
+    @extend %weight-400;
+    @extend %clr14;
+    font-size: var(--body-fs);
+    line-height: em(32, 18);
+    letter-spacing: .0063rem;
+}
+
+%footer {
+    @extend %weight-400;
+    @extend %clr14;
+    font-size: var(--footer-fs);
+    line-height: em(32, 15);
+}
+
+%social {
+    @extend %weight-700;
+    @extend %clr13;
+    font-size: var(--social-fs);
+    line-height: em(56, 48);
+    letter-spacing: -0.0313rem;
+}
+
+%bttnPrimary {
+    @extend %weight-700;
+    font-size: var(--heading-M-fs);
+    line-height: em(32, 16);
+    letter-spacing: -0.0112rem;
+}
+
+%bttnSecondary {
+    @extend %weight-700;
+    font-size: var(--bttb-fs);
+    line-height: em(32, 16);
+    letter-spacing: -0.01rem;
+}
+
 %autoMargin {
     margin-inline: auto;
 }
@@ -163,6 +240,10 @@
     color: $clr13;
 }
 
+%clr14 {
+    color: $clr14;
+}
+
 %backClr13 {
     background-color: $clr13;
 }
@@ -212,6 +293,3 @@
         @content;
     }
 }
-
-
-

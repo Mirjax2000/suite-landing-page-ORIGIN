@@ -3,8 +3,14 @@
 
 @font-face {
     font-family: Epilogue;
-    src: url(./../fonts/Epiloque-VariableFont_wght.ttf);
-    src: url(./../fonts/Epiloque-VariableFont_wght.woff2);
+    src: url(./../fonts/Epilogue-VariableFont_wght.ttf);
+    src: url(./../fonts/Epilogue-VariableFont_wght.woff2);
+    font-style: normal;
+}
+
+@font-face {
+    font-family: HankenGrotesk;
+    src: url(./../fonts/HankenGrotesk-VariableFont_wght.ttf);
     font-style: normal;
 }
 
@@ -23,29 +29,11 @@ html {
 
 
 body {
-    font-family: Epiloque, sans-serif;
-    // font-family: sans-serif;
-}
-
-
-h1 {
-    font-weight: 900;
+    font-family: Epilogue, sans-serif;
 }
 
 h2 {
-    font-weight: 800;
+    @extend %bttnPrimary;
 }
 
-h3 {
-    font-weight: 700;
-}
-
-h4 {
-    font-weight: 600;
-}
-
-p {
-    font-weight: 400;
-}
-
-// @media only screen and (max-width: 500px) {}
+//  @media only screen and (max-width: 500px) {}
