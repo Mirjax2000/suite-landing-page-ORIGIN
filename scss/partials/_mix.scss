@@ -51,6 +51,7 @@
 @mixin container($width: 90rem) {
     max-width: $width;
     margin-inline: auto;
+    min-width: 21.875rem;
 }
 
 @mixin radialGradient($background: $backroundGradient) {

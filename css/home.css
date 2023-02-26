@@ -345,6 +345,7 @@ body {
 .container {
   max-width: 90rem;
   margin-inline: auto;
+  min-width: 21.875rem;
   padding: 3.125rem 10.375rem;
 }
 
@@ -358,7 +359,7 @@ header {
 }
 header img {
   width: 81px;
-  height: 32px;
+  height: 29px;
   -ms-flex-item-align: center;
       align-self: center;
 }
@@ -442,11 +443,21 @@ footer {
     --footer-fs:0.9375rem;
     --bttn-fs:14px;
   }
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  .hero {
+    margin-top: 5.625rem;
+  }
+  .hero--heading {
+    max-width: 100%;
+    letter-spacing: -0.0331rem;
+  }
   .hero--picture {
     background-image: url(./../img/image-hero-landscape.png);
     width: 21.4375rem;
     height: 15rem;
-    top: 400px;
+    top: 390px;
     right: 50%;
     -webkit-transform: translateX(10.5rem);
             transform: translateX(10.5rem);

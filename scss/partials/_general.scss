@@ -49,7 +49,7 @@ header {
 
     img {
         width: 81px;
-        height: 32px;
+        height: 29px;
         align-self: center
     }
 
@@ -184,15 +184,25 @@ footer {
         --bttn-fs:#{$bttn-Min};
     }
 
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
     .hero {
+        margin-top: 5.625rem;
+
+        &--heading {
+            max-width: 100%;
+            letter-spacing: -0.0331rem;
+        }
+
         &--picture {
             background-image: url(./../img/image-hero-landscape.png);
             width: 21.4375rem;
             height: 15rem;
-            top: 400px;
+            top: 390px;
             right: 50%;
             transform: translateX(10.5rem);
         }
     }
-
 }
