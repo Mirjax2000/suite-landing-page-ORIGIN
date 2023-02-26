@@ -14,6 +14,10 @@
     font-style: normal;
 }
 
+// *:not(strong) {
+//     outline: 1px solid black;
+// }
+
 /* border-box */
 *,
 *::before,
@@ -33,8 +37,8 @@ body {
     background-color: $clr12;
 }
 
+
 .container {
-    outline: 1px solid green;
     @include container(90rem);
     padding: 3.125rem 10.375rem;
 }
@@ -42,7 +46,6 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    outline: 1px solid red;
 
     img {
         width: 81px;
@@ -50,26 +53,60 @@ header {
         align-self: center
     }
 
-    .secondary {
+    .secondaryBttn {
         @extend %bttnSecondary;
         transition: background-color ease-in-out .2s;
 
         &:hover {
-            background-color: $clr13;
-            color: $clr12 ;
+            @extend %backClr13;
+            @extend %clr12;
         }
     }
 }
 
 .hero {
+    margin-top: 11.75rem;
+    position: relative;
+    isolation: isolate;
+
     &--heading {
         @extend %heading-XL;
-        outline: 1px solid black;
+        max-width: 41rem;
+        letter-spacing: -1px;
 
         strong {
             @extend %weight-700;
         }
     }
+
+    &--content {
+        @extend %body;
+        max-width: 21.875rem;
+        margin: 2.5rem 0 4.1875rem 0;
+    }
+
+    &--primaryBttn {
+        @extend %bttnPrimary;
+
+        &:hover {
+            background: $backroundGradient;
+        }
+    }
+
+    &--picture {
+        position: absolute;
+        width: 21.875rem;
+        height: 37.5rem;
+        background-image: url(./../img/image-hero-portrait.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: -103px;
+        right: clamp(1px, calc(77% - 35rem), 17.7rem);
+        z-index: -1;
+    }
+
+
 }
 
 
@@ -93,4 +130,69 @@ footer {
 
 }
 
-//  @media only screen and (max-width: 500px) {}
+@media only screen and (max-width: 1050px) {
+    .container {
+        padding: 2.5rem;
+    }
+
+    .hero {
+        &--picture {
+            right: clamp(1px, calc(79% - 40rem), 7rem);
+        }
+    }
+
+
+}
+
+@media only screen and (max-width: 900px) {
+    :root {
+        --heading-XL-fs:#{$heading-XL-Mid};
+        --heading-L-fs:#{$heading-L-Mid};
+        --heading-M-fs:#{$heading-M-Mid};
+        --heading-S-fs:#{$heading-S-Mid};
+        --social-fs:#{$social-Mid};
+        --quote-fs:#{$quote-Mid};
+        --body-fs:#{$body-Mid};
+        --footer-fs:#{$footer-Mid};
+        --bttn-fs:#{$bttn-Mid};
+    }
+
+    .hero {
+        &--heading {
+            max-width: 32rem;
+            letter-spacing: -.777778px;
+        }
+
+        &--picture {
+            width: 17.5625rem;
+            height: 30.125rem;
+            right: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    :root {
+        --heading-XL-fs:#{$heading-XL-Min};
+        --heading-L-fs:#{$heading-L-Min};
+        --heading-M-fs:#{$heading-M-Min};
+        --heading-S-fs:#{$heading-S-Min};
+        --social-fs:#{$social-Min};
+        --quote-fs:#{$quote-Min};
+        --body-fs:#{$body-Min};
+        --footer-fs:#{$footer-Min};
+        --bttn-fs:#{$bttn-Min};
+    }
+
+    .hero {
+        &--picture {
+            background-image: url(./../img/image-hero-landscape.png);
+            width: 21.4375rem;
+            height: 15rem;
+            top: 400px;
+            right: 50%;
+            transform: translateX(10.5rem);
+        }
+    }
+
+}
