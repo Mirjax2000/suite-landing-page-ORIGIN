@@ -247,7 +247,9 @@ img {
 
 @font-face {
   font-family: Epilogue;
-  src: url();
+  src: url(./../fonts/Epiloque-VariableFont_wght.ttf);
+  src: url(./../fonts/Epiloque-VariableFont_wght.woff2);
+  font-style: normal;
 }
 /* border-box */
 *,
@@ -271,6 +273,26 @@ html ::selection {
 }
 
 body {
-  font-family: "Overpass", sans-serif;
+  font-family: Epiloque, sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 400;
 }
 /*# sourceMappingURL=home.css.map */
