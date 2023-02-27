@@ -8,12 +8,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: HankenGrotesk;
-    src: url(./../fonts/HankenGrotesk-VariableFont_wght.ttf);
-    font-style: normal;
-}
-
 // *:not(strong) {
 //     outline: 1px solid black;
 // }
@@ -31,7 +25,6 @@ html {
     @include selection;
 }
 
-
 body {
     font-family: Epilogue, sans-serif;
     background-color: $clr12;
@@ -40,10 +33,12 @@ body {
 
 .container {
     @include container(90rem);
-    padding: 3.125rem 10.375rem;
+    padding-inline: clamp(40px, calc(20% - 10rem), 10.375rem);
+    // outline: 1px solid red;
 }
 
 header {
+    margin-top: 3.125rem;
     display: flex;
     justify-content: space-between;
 
@@ -70,10 +65,6 @@ header {
     isolation: isolate;
     display: flex;
     justify-content: space-between;
-
-    .left {
-        outline: 1px solid red;
-    }
 
     &--heading {
         @extend %heading-XL;
@@ -116,20 +107,16 @@ header {
 
     &--picture {
         position: absolute;
-        width: 21.875rem;
-        height: 37.5rem;
-        background-image: url(./../img/image-hero-portrait.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+        width: 350px;
+        height: 600px;
         top: -103px;
-        right: clamp(1px, calc(77% - 35rem), 17.7rem);
+        left: 475px;
+        left: clamp(300px, calc(58% - 10rem), 475px);
         z-index: -1;
     }
 
     .right--list {
-        padding: 0 1rem;
-        outline: 1px solid red;
+        margin-right: 70px;
 
         &--items {
 
@@ -141,51 +128,111 @@ header {
 
             h3 {
                 @extend %heading-S;
+                @extend %clr14;
             }
         }
     }
-
-
 }
 
+.jeremy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 
 
+    height: 545px;
+    border-radius: 15px;
+    @extend %backClr13;
 
+    position: relative;
+    isolation: isolate;
+    top: 272.5px;
+    right: 0;
+    left: 0;
 
+    &::after {
+        position: absolute;
+        content: '';
+        width: 64px;
+        height: 52px;
 
+        top: clamp(50px, calc(10vw), 155px);
+        right: 47%;
+        background-image: url(./../img/pattern-curved-line-2.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
 
-
-
-
-
-
-
-
-
-
-
-footer {
-    padding-block: 14.5rem;
-    background-color: $clr11 ;
-
-}
-
-@media only screen and (max-width: 1050px) {
-    .container {
-        padding: 2.5rem;
     }
 
-    .hero {
-        &--picture {
-            right: clamp(1px, calc(79% - 40rem), 7rem);
+    .jeremy--picture {
+        position: absolute;
+        width: 375px;
+        height: 600px;
+        bottom: 0;
+        left: clamp(1rem, calc(25% - 10rem), 112px);
+
+    }
+
+    &--content {
+        flex-basis: 45%;
+        padding-right: 5rem;
+
+        h2 {
+            @extend %heading-L;
+
+        }
+
+        p {
+            @extend %quote;
+            margin-block: 40px;
+        }
+
+        h3 {
+            @extend %heading-M;
+        }
+
+        h4 {
+            @extend %heading-S;
+            @extend %clr11;
         }
     }
 
-
 }
 
-@media only screen and (max-width: 900px) {
+
+footer {
+    background-color: $clr11 ;
+    padding-top: 22.5rem;
+    padding-bottom: 4.5rem;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    h5 {
+        @extend %footer;
+    }
+
+    .footer--social {
+        color: $clr13;
+        transition: opacity ease-in-out .2s;
+        margin-right: 1.75rem;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
     :root {
         --heading-XL-fs:#{$heading-XL-Mid};
         --heading-L-fs:#{$heading-L-Mid};
@@ -198,7 +245,14 @@ footer {
         --bttn-fs:#{$bttn-Mid};
     }
 
+    .container {
+        padding-inline: clamp(40px, calc(28% - 8rem), 10.375rem);
+    }
+
     .hero {
+        display: block;
+        margin-top: 10.5rem;
+
         &--heading {
             max-width: 32rem;
             letter-spacing: -.777778px;
@@ -209,15 +263,34 @@ footer {
             }
         }
 
+        &--content {
+            margin-block: 2.5rem;
+        }
+
         &--picture {
-            width: 17.5625rem;
-            height: 30.125rem;
-            right: 0;
+            width: 281px;
+            height: 482px;
+            top: -88px;
+            left: 100%;
+            transform: translateX(-281px);
+        }
+
+        .right {
+            &--list {
+                display: flex;
+                justify-content: space-around;
+
+                margin-top: 5rem;
+
+                &--items {
+                    margin: 0;
+                }
+            }
         }
     }
 }
 
-@media only screen and (max-width: 710px) {
+@media only screen and (max-width: 740px) {
     :root {
         --heading-XL-fs:#{$heading-XL-Min};
         --heading-L-fs:#{$heading-L-Min};
@@ -230,12 +303,25 @@ footer {
         --bttn-fs:#{$bttn-Min};
     }
 
-    .container {
-        padding: 1.5rem 5rem;
+    // .container {
+    //     padding-inline: 5rem;
+    // }
+
+    header {
+        margin-top: 1.5rem;
     }
 
     .hero {
         margin-top: 5.625rem;
+
+        &--picture {
+            position: static;
+            display: block;
+            width: 343px;
+            height: auto;
+            transform: none;
+            margin: 3rem auto;
+        }
 
         &--heading {
             max-width: 80%;
@@ -249,25 +335,44 @@ footer {
             }
         }
 
-        &--picture {
-            background-image: none;
+        .right .right--list {
+            margin-top: 0;
 
         }
     }
 }
 
-@media only screen and (max-width: 500px) {
-    .container {
-        padding: 1.5rem 1rem;
-    }
+@media only screen and (max-width: 550px) {
 
     .hero {
+        margin-top: 80px;
+
         &--heading {
             max-width: 100%;
         }
 
         &--content {
             max-width: 100%;
+            margin: 2rem 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    // .container {
+    //     padding-inline: 1rem;
+    // }
+
+    .hero {
+        .right {
+            &--list {
+                display: block;
+                text-align: center;
+
+                &--items {
+                    margin-bottom: 2rem;
+                }
+            }
         }
     }
 }
