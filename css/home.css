@@ -436,8 +436,23 @@ header .secondaryBttn {
   max-width: 21.875rem;
   margin: 2.5rem 0 4.1875rem 0;
 }
-.hero--primaryBttn:hover {
+.hero--primaryBttn {
+  position: relative;
+  isolation: isolate;
+}
+.hero--primaryBttn::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-radius: 0.375rem;
   background: linear-gradient(135deg, #A060FF 0%, #CB30E3 49.21%, #FFA84E 100%);
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: opacity ease-in-out 0.3s;
+  transition: opacity ease-in-out 0.3s;
+}
+.hero--primaryBttn:hover::after {
+  opacity: 1;
 }
 .hero--picture {
   position: absolute;
@@ -484,7 +499,7 @@ header .secondaryBttn {
   background-size: contain;
   background-position: center;
 }
-.jeremy .jeremy--picture {
+.jeremy--picture {
   position: absolute;
   width: 375px;
   height: 600px;
@@ -541,7 +556,7 @@ footer .footer--social:hover {
     --bttn-fs:1rem;
   }
   .container {
-    padding-inline: clamp(40px, 28% - 8rem, 10.375rem);
+    padding-inline: clamp(40px, 30% - 11rem, 10.375rem);
   }
   .hero {
     display: block;
@@ -572,10 +587,40 @@ footer .footer--social:hover {
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
+    margin-right: 0;
     margin-top: 5rem;
   }
   .hero .right--list--items {
     margin: 0;
+  }
+  .jeremy {
+    display: block;
+    width: 100%;
+    height: 684px;
+  }
+  .jeremy::after {
+    width: 50px;
+    height: 40px;
+    top: 250px;
+    right: calc(50% - 25px);
+  }
+  .jeremy--picture {
+    width: 252px;
+    height: 402px;
+    left: 50%;
+    -webkit-transform: translateX(-126px);
+            transform: translateX(-126px);
+    top: -180px;
+  }
+  .jeremy--content {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    padding: 0;
+    text-align: center;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
   }
 }
 @media only screen and (max-width: 740px) {
@@ -589,6 +634,9 @@ footer .footer--social:hover {
     --body-fs:1rem;
     --footer-fs:0.9375rem;
     --bttn-fs:14px;
+  }
+  .container {
+    padding-inline: clamp(1rem, 40% - 11rem, 10.375rem);
   }
   header {
     margin-top: 1.5rem;
@@ -618,6 +666,9 @@ footer .footer--social:hover {
   .hero .right .right--list {
     margin-top: 0;
   }
+  .jeremy {
+    height: 748px;
+  }
 }
 @media only screen and (max-width: 550px) {
   .hero {
@@ -632,12 +683,34 @@ footer .footer--social:hover {
   }
 }
 @media only screen and (max-width: 480px) {
+  .container {
+    padding: 0;
+  }
+  header {
+    padding-inline: 1rem;
+  }
+  .hero {
+    padding-inline: 1rem;
+  }
   .hero .right--list {
     display: block;
     text-align: center;
   }
   .hero .right--list--items {
     margin-bottom: 2rem;
+  }
+  .jeremy {
+    top: 200px;
+  }
+  footer {
+    padding-top: 16rem;
+  }
+  footer .container {
+    display: block;
+    text-align: center;
+  }
+  footer h5 {
+    margin-block: 2rem;
   }
 }
 /*# sourceMappingURL=home.css.map */

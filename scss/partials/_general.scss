@@ -34,7 +34,6 @@ body {
 .container {
     @include container(90rem);
     padding-inline: clamp(40px, calc(20% - 10rem), 10.375rem);
-    // outline: 1px solid red;
 }
 
 header {
@@ -99,10 +98,25 @@ header {
 
     &--primaryBttn {
         @extend %bttnPrimary;
+        position: relative;
+        isolation: isolate;
 
-        &:hover {
+        &::after {
+            position: absolute;
+            content: '';
+            inset: 0;
+            border-radius: .375rem;
             background: $backroundGradient;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity ease-in-out .3s;
         }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
+
     }
 
     &--picture {
@@ -139,8 +153,6 @@ header {
     justify-content: space-between;
     align-items: center;
 
-
-
     height: 545px;
     border-radius: 15px;
     @extend %backClr13;
@@ -163,16 +175,14 @@ header {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-
     }
 
-    .jeremy--picture {
+    &--picture {
         position: absolute;
         width: 375px;
         height: 600px;
         bottom: 0;
         left: clamp(1rem, calc(25% - 10rem), 112px);
-
     }
 
     &--content {
@@ -198,9 +208,7 @@ header {
             @extend %clr11;
         }
     }
-
 }
-
 
 footer {
     background-color: $clr11 ;
@@ -232,6 +240,7 @@ footer {
     }
 }
 
+// --- tablet ---
 @media only screen and (max-width: 1000px) {
     :root {
         --heading-XL-fs:#{$heading-XL-Mid};
@@ -246,7 +255,7 @@ footer {
     }
 
     .container {
-        padding-inline: clamp(40px, calc(28% - 8rem), 10.375rem);
+        padding-inline: clamp(40px, calc(30% - 11rem), 10.375rem);
     }
 
     .hero {
@@ -279,13 +288,44 @@ footer {
             &--list {
                 display: flex;
                 justify-content: space-around;
-
+                margin-right: 0;
                 margin-top: 5rem;
 
                 &--items {
                     margin: 0;
                 }
             }
+        }
+    }
+
+    .jeremy {
+        display: block;
+        width: 100%;
+        height: 684px;
+
+        &::after {
+            width: 50px;
+            height: 40px;
+            top: 250px;
+            right: calc(50% - 25px);
+        }
+
+        &--picture {
+            width: 252px;
+            height: 402px;
+            left: 50%;
+            transform: translateX(-126px);
+            top: -180px;
+        }
+
+        &--content {
+            position: absolute;
+            bottom: 10%;
+            left: 10%;
+            right: 10%;
+            padding: 0;
+            text-align: center;
+            flex-basis: 100%;
         }
     }
 }
@@ -303,9 +343,9 @@ footer {
         --bttn-fs:#{$bttn-Min};
     }
 
-    // .container {
-    //     padding-inline: 5rem;
-    // }
+    .container {
+        padding-inline: clamp(1rem, calc(40% - 11rem), 10.375rem);
+    }
 
     header {
         margin-top: 1.5rem;
@@ -340,8 +380,13 @@ footer {
 
         }
     }
+
+    .jeremy {
+        height: 748px;
+    }
 }
 
+// --- mobile --- 
 @media only screen and (max-width: 550px) {
 
     .hero {
@@ -359,11 +404,17 @@ footer {
 }
 
 @media only screen and (max-width: 480px) {
-    // .container {
-    //     padding-inline: 1rem;
-    // }
+    .container {
+        padding: 0;
+    }
+
+    header {
+        padding-inline: 1rem;
+    }
 
     .hero {
+        padding-inline: 1rem;
+
         .right {
             &--list {
                 display: block;
@@ -373,6 +424,23 @@ footer {
                     margin-bottom: 2rem;
                 }
             }
+        }
+    }
+
+    .jeremy {
+        top: 200px;
+    }
+
+    footer {
+        padding-top: 16rem;
+
+        .container {
+            display: block;
+            text-align: center;
+        }
+
+        h5 {
+            margin-block: 2rem;
         }
     }
 }

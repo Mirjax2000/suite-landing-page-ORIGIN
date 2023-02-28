@@ -63,9 +63,13 @@
         </main>
 
         <section class="jeremy">
-            <div>
-                <img class="jeremy--picture" src="./img/image-jeremy-large.png" alt="Picture of jeremy">
-            </div>
+            <picture>
+                <source media="(max-width:1000px )"
+                    srcset="./img/image-jeremy-small@2x.webp 2x,./img/image-jeremy-small.webp 1x">
+
+                <img class="jeremy--picture" src="./img/image-jeremy-large.webp" alt="Picture of jeremy"
+                    srcset="./img/image-jeremy-large@2x.webp 2x">
+            </picture>
             <div class="jeremy--content">
                 <h2>It just <strong>works</strong></h2>
                 <p>“I really like how it is an all-in-one solution that handle many of the tasks that you would normally
@@ -77,7 +81,6 @@
 
 
         </section>
-
     </div>
 
     <footer>
